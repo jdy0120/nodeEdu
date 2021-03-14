@@ -95,4 +95,9 @@ console.log('123abc'.match(/(\d+)(\w)/));
  * \d는 숫자에 일치하며, \w는 63개 문자(영문 대소문자 52개 + 숫자 10개 + _(underscore))에 일치한다.
  */
 
-console.log("aabbcc".match(/(a)\1/))
+console.log("aabbcc".match(/(a)\1/));
+
+/**
+ * 차량정보조회 api
+ */
+
