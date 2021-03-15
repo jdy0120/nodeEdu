@@ -97,7 +97,87 @@ console.log('123abc'.match(/(\d+)(\w)/));
 
 console.log("aabbcc".match(/(a)\1/));
 
-/**
- * 차량정보조회 api
- */
+console.log("aabbbcc".match(/((b))\1\2/));
 
+console.log("hello.world".replace(/(\w+)\.(\w+)/, "$2.$1"));
+
+console.log("abc".match(/(b)?/));
+
+console.log("ab".match(/(b)?(a)/));
+
+console.log("ab".match(/(b)?(a)(b)/));
+
+console.log("abc".match(/(b)?(a)?(c)?(b)?/));
+
+console.log("football".match(/(ball)|(foot)/));
+console.log("football".match(/(ball)*(foot)/));
+console.log("football".match(/(ball)*?(foot)/));
+console.log("football".match(/(ball)?(foot)/));
+console.log("football".match(/(ball)??(foot)/));
+console.log("football".match(/(ball){0}(foot)/));
+console.log("football".match(/(ball){0,}{foot}/));
+
+"aabbcc".match(/(a)/);
+
+const result = "aabbcc".match(/(?<myName>a)/);
+
+console.log(result.groups.myName);
+
+//"aabbcc".match(/?<my-name>a/);
+// Uncaught SyntaxError 카멜표기법으로 이름을 지정해야한다.
+
+//const ko = 'kokokoko';
+
+console.log(ko.match(/(ko)+/));
+
+console.log(ko.match(/(?:ko)+/));
+
+//패턴(?=) : 앞쪽 일치
+console.log("abc".match(/(ab(?=c))/));
+
+console.log("abd".match(/(ab(?=c))/));
+
+//패턴(?!) : 부정 앞쪽 일치
+console.log("abc".match(/ab(?!c)/));
+
+console.log("abd".match(/ab(?!c)/));
+
+//패턴(?<=) : 뒤쪽 일치
+console.log("xyz".match(/(?<=x)yz/));
+
+console.log("ayz".match(/(?<=x)yz/));
+
+//패턴(?<!) : 부정 뒤쪽 일치
+console.log("xyz".match(/(?<!x)yz/));
+
+console.log("ayz".match(/(?<!x)yz/));
+
+//패턴[abc] : a또는 b또는 c와 일치
+console.log("abc".match(/[bca]/));
+
+console.log("abc".match(/b|c|a/));
+
+//패턴[abc]의 예시 : 틀린 문자가 포함된 단어를 검색할 때도 유용하게 사용할 수 있다.
+const str3 = "character class or charectar set";
+console.log(str3.match(/char[ae]ct[ae]r/g));
+
+//문자 법위 지정 : 패턴[] 안에서 -을 이용하면 문자의 범위(구간)를 지정할 수 있습니다.
+console.log("abcdef".match(/[a-e]/));
+console.log("abcdef".match(/[abcde]/));
+console.log("abcdef".match(/[a-e]/g));
+//console.log("01234567890".match(/[1-0]/)); // SyntaxError
+console.log("01234567890".match(/[0-9]/));
+console.log("01234567890".match(/[0-9]/g));
+console.log("가나다라마바사아".match(/[다-바]/g)); // [가-핳]
+
+//이스케이프 문자 : []안에서는 특수문자 앞에 \를 붙이지 않아도 사용할 수 있다.
+console.log("Hmm....".match(/\.[.]/));
+
+//패턴[^abc](a또는 b또는 c가 아닌 나머지 문자에 일치)
+console.log("abcd".match(/[^bca]/));
+console.log("hello123 world456".replace(/[^\d]/g, ""));
+console.log("hello123 world456".replace(/\D/g, ""));
+
+//괄호 사이 값 추출
+const str4 = 'Heropy(Young-Woong Park)'
+console.log(str4.match(/\((.*)\)/)[1]);
